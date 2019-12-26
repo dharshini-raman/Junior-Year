@@ -1,0 +1,81 @@
+package simpleClass;
+
+public class Triangle {
+	private Coordinate a;
+	private Coordinate b;
+	private Coordinate c;
+	double d;
+	double s;
+	double ar;
+	double perim;
+	
+	public Triangle() {
+		a = new Coordinate(0,1);
+		b = new Coordinate(1,-1);
+		c = new Coordinate(-1,-1);
+}
+	public Triangle(int ax, int ay, int bx, int by, int cx, int cy) {
+		
+		a = new Coordinate(ax,ay);
+		b= new Coordinate(bx,by);
+		c= new Coordinate(cx,cy);
+		
+	}
+	
+public void setTriangle(int ax, int ay, int bx, int by, int cx, int cy) {
+		
+		a = new Coordinate(ax,ay);
+		b= new Coordinate(bx,by);
+		c= new Coordinate(cx,cy);
+		
+	}
+	
+	
+	public void dilate(int scaleFactor) {
+		a.dilate(scaleFactor);
+		b.dilate(scaleFactor);
+		c.dilate(scaleFactor);
+	}
+	
+	
+	public void reflectX()  {
+		a.reflectX();
+		b.reflectX();
+		c.reflectX();
+
+	}
+	
+	public void reflectY()  {
+		a.reflectY();
+		b.reflectY();
+		c.reflectY();
+
+	}
+	
+	
+	public double distance(int onex, int twox, int oney, int twoy) {
+		d = java.lang.Math.sqrt(((twox-onex)*(twox-onex))+((twoy-oney)*(twoy-oney)));		
+		return d;
+	}
+	
+	
+	public double perimeter() {
+		perim =((distance(a.x,b.x,a.y,b.y))+(distance(b.x,c.x,b.y,c.y))+(distance(c.x,a.x,c.y,a.y)));
+		return perim;
+	}
+	
+	public double area() {
+		s = ((distance(a.x,b.x,a.y,b.y))+(distance(b.x,c.x,b.y,c.y))+(distance(c.x,a.x,c.y,a.y)))/2; 
+	ar = java.lang.Math.sqrt(s*(s-( distance( a.x,b.x,a.y,b.y) ) )*( s-( distance (b.x,c.x,b.y,c.y ) ))*( s-( distance (c.x,a.x,c.y,a.y ))));
+	
+	return ar;
+	}
+	
+	public String toString() {
+		String first = a.toString();
+		String second = b.toString();
+		String third = c.toString();
+		return (first+second+third);
+	}
+	
+}
