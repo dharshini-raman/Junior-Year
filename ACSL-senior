@@ -1,0 +1,98 @@
+package acsl2019;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.BitSet;
+import java.util.LinkedHashSet;
+import java.util.Scanner;
+
+import java.io.IOException;
+
+public class senior {
+	public static void main(String args[]) throws IOException {
+
+		File file = new File("C://Users//dhars/Documents//exam.txt");
+		Scanner sc = new Scanner(file);
+		String input = "";
+		int counter = 0;
+		ArrayList<Integer> arr = new ArrayList<Integer>();
+		sc.useDelimiter(",|\\r\n");
+		while (sc.hasNextLine()) {
+			System.out.println("idk");
+			while (sc.hasNext()) {
+				String k = sc.next();
+				arr.clear();
+				int space = k.indexOf(' ');
+				String ink = k.substring(0, space);
+				int p = Integer.parseInt(String.valueOf(k.charAt(k.length() - 1)));
+				System.out.println(k);
+
+				
+				counter = 0;
+				
+				long number = Long.parseLong(ink);
+			    
+			        // Print the number of 2s that divide n 
+			       
+			       
+				ArrayList<Long> primes = new ArrayList<Long>();
+		        
+		     
+				for(int i = 2; i< number; i++) {
+			         while(number%i == 0) {
+			           // System.out.println(i+" ");
+			            primes.add((long) i);
+			            number = number/i;
+			         }
+			      }
+			      if(number >2) {
+			    	  primes.add(number);
+			    	  //System.out.println(number);
+				
+				
+			      }
+			      
+			      
+			      LinkedHashSet<Long> hashSet = new LinkedHashSet<>(primes);
+			         
+			        ArrayList<Long> dupe = new ArrayList<>(hashSet);
+				
+				
+				
+				for (int i = 0; i < ink.length(); i++) {
+					int res = Integer.parseInt(String.valueOf(ink.charAt(i)));
+					arr.add(res);
+				}
+				int index = (arr.size() - p);
+//System.out.println("bd" + arr.size());
+				int value = arr.get(index);
+
+				for (int i = 0; i < index; i++) {
+
+					arr.set(i, java.lang.Math.abs(arr.get(i) + value));
+
+					
+					System.out.print(arr.get(i));
+				}
+
+				
+			
+				
+				System.out.print(dupe.size());
+
+				for (int i = index + 1; i < arr.size(); i++) {
+
+					arr.set(i, java.lang.Math.abs((arr.get(i) - value)));
+					System.out.print(arr.get(i));
+					
+				}
+				System.out.println(" ");
+
+			}
+
+		}
+	}
+}
+
+
