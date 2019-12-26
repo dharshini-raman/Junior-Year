@@ -1,0 +1,50 @@
+package complexx;
+import java.io.File;
+import java.util.Scanner;
+
+public class ComplexRunner {
+
+	public static void main(String[] args) throws Exception{
+
+
+		File file = new File("\\\\H0412SFS03\\Home$\\Students\\9394896\\downloads\\cnlist.txt"); 
+		Scanner sc = new Scanner(file);
+		ComplexNum[] ArrComp = new ComplexNum[10];
+		int pos = 0;
+		while (sc.hasNextLine()) {
+			String line = sc.nextLine();
+			Scanner lineScanner = new Scanner(line);
+			lineScanner.useDelimiter(" ");
+			while(lineScanner.hasNext()) {
+				String p1= lineScanner.next();
+				double h = Double.parseDouble(p1);
+				String p2 = lineScanner.next();
+				double hk = Double.parseDouble(p2);
+				ArrComp[pos] = new ComplexNum(h, hk);
+				pos++;
+			}
+		}
+
+		System.out.println("Unsorted Array:");
+		for(int i=0; i<ArrComp.length; i++) {
+			System.out.println(ArrComp[i]);
+		}
+int m=0;
+		while(m<ArrComp.length) {
+			for(int j=m+1; j<ArrComp.length; j++) {
+				if(ArrComp[m].compareTo(ArrComp[j])==1) {
+					ComplexNum temp = ArrComp[m];
+					ArrComp[m] = ArrComp[j];
+					ArrComp[j] = temp;
+				}
+			}
+m++;
+		}
+
+		System.out.println();
+		System.out.println("Sorted Array:");
+		for(int i=0; i<ArrComp.length; i++) {
+			System.out.println(ArrComp[i]);
+		}
+	}
+}
