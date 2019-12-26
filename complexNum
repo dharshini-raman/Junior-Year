@@ -1,0 +1,124 @@
+package complexx;
+//import java.io.File;
+//import java.util.Scanner;
+
+public class ComplexNum implements Comparable <ComplexNum> {
+	private double real; // real part
+	private double imag; //imaginary part
+	private double r;
+	private double theta;
+
+	//default constructor.
+	//set real = imag = 0;
+	ComplexNum() {
+		real = 0;
+		imag = 0;
+		polarize();
+	}
+
+	//specific constructor
+	//use this. keyword to set private variables
+	ComplexNum(double real, double imag) {
+		this.real = real;
+		this.imag = imag;
+		polarize();
+	}
+
+	//add a complex number to this
+	//complex number. return a ComplexNum
+	public boolean equals(ComplexNum second) {
+		if(Math.abs(r-second.r)<.001) {
+			return true;
+		}
+		else return false;
+	}
+
+	public int compareTo(ComplexNum second) {
+		if(Math.abs(r-second.r)<.001) {
+			return 0;
+		}
+		else if(r<second.r) {
+			return -1;
+		}
+		else return 1;
+	}
+
+	public ComplexNum plus(ComplexNum a) {	
+		ComplexNum add = new ComplexNum((this.real + a.getReal()), (this.imag + a.getImag()));
+		return add;
+	}
+
+	//subtract
+	public ComplexNum minus(ComplexNum a) {
+		ComplexNum subtract = new ComplexNum((this.real - a.getReal()), (this.imag - a.getImag()));
+		return subtract;
+	}
+
+	public ComplexNum times (ComplexNum a) {
+		double ac = this.real * a.getReal();
+		double ad = this.real * a.getImag();
+		double bc = this.imag * a.getReal();
+		double bd = this.imag * a.getImag();
+		double x = ac - bd;
+		double y = ad + bc;
+		ComplexNum multiply = new ComplexNum(x, y);
+		return multiply;
+	}
+
+	// return the complex conjugate
+	public ComplexNum conjugate() {
+		double newImag = (imag) * (-1); 
+		ComplexNum conj = new ComplexNum(real, newImag);
+		return conj;
+	}
+
+	public double getReal() {
+		return real;
+	}
+
+	public double getImag() {
+		return imag;
+	}
+
+	public double getR() {
+		return r;
+	}
+	
+
+	// return the rationalized version of this 
+	// complex number.
+	// 1/(a+bi) where a+bi is the current object
+	public ComplexNum rationalize() {
+		double denom = (real * real) + (imag * imag);
+		double x = real / denom;
+		double y = (imag * -1) / denom;
+		ComplexNum rat = new ComplexNum(x, y);
+		return rat;
+	}
+
+
+	public void polarize() {
+		//		String out = "";
+		double x = Math.pow(real, 2);
+		double y = Math.pow(imag, 2);
+		r = Math.sqrt(x + y);
+		theta = Math.atan(imag/real);
+		//		System.out.println("Angle: " + angle);
+		//		out = r + "(cos(" + angle + ") + isin(" + angle + "))";
+		// number. find the magnitude and angle 
+		// in radians.
+		// return a string in the form 
+		// r(cos(theta) + i sin(theta))
+		//		return out;
+		//		System.out.println("R: " + r);
+	}
+
+	public String toString() {
+		String out = " ";
+		out = real + " + " + imag + "i";
+		// write code here to return a string
+		// in the form a + bi
+		return (out + "\t r: " + r);
+	}
+
+}
