@@ -1,0 +1,30 @@
+public class BunnyFoo {
+	private String name;
+	int x;
+	
+
+	
+	
+	public BunnyFoo (String n, int y)
+	{
+		
+		name=n;
+		x = y;
+	}
+	
+	public String toString()
+		{return name +" " + x;}
+	
+	public int getX() {return this.x;}
+	public String getName() {return this.name;}
+	
+	public boolean equals (BunnyFoo m)
+	{
+		if ((this.x == m.getX()) &&(this.name == m.getName()))
+			return true;
+		else 
+			return false;
+	}
+
+
+}
