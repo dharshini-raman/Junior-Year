@@ -1,0 +1,69 @@
+package arListsss;
+
+import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class LetterCounter {
+
+	private char l;
+	private int count;
+
+	public void setCounter(int count) {
+
+		this.count = count;
+	}
+
+	public void setletter(char l) {
+
+		this.l = l;
+	}
+
+	public int getCounter(int count) {
+
+		return count;
+	}
+
+	public char getletter(char l) {
+
+		return l;
+	}
+
+	public void compareTo() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please enter your statement");
+		String stri = sc.nextLine();
+
+		stri = stri.toLowerCase();
+
+		String[] letters = stri.split("");
+		System.out.println(stri);
+
+		ArrayList<String> words = new ArrayList<String>();
+
+		words.addAll(Arrays.asList(letters));
+
+		int count = 0;
+
+		for (int i = 0; i < words.size(); i++) {
+			System.out.printf("%s: ", words.get(i));
+			for (int j = 0; j < words.size(); j++) {
+				if (words.get(i).equals(words.get(j)))
+					count++;
+				if (words.get(i).equals(words.get(j)) && count > 1)
+					words.remove(j);
+			}
+			System.out.printf("%d\n", count);
+			count = 0;
+		}
+	}
+
+	public static void main(String[] args) {
+		LetterCounter k = new LetterCounter();
+
+		k.compareTo();
+
+	}
+}
+
+
