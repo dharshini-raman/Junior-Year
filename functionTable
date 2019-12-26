@@ -1,0 +1,22 @@
+package functions;
+
+public class funcTable {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method 
+		 System.out.printf("%10s",("   Number     Square  Square Root        Cube       4th Root\n"));
+		   for(int i=1;i<21;i++){ 
+		     //System.out.print("   " + i+"         ");
+		     //+"     "+java.lang.Math.sqrt(i)+"     "+(i*i*i)+"     "+(java.lang.Math.sqrt(java.lang.Math.sqrt(i))));
+		      System.out.printf("%8d",(i));
+		      System.out.printf("%10d",(i*i));
+		     System.out.printf("%11.4f",(java.lang.Math.sqrt(i)) );
+		     System.out.printf("%14d",(i*i*i));
+		     System.out.printf(" %14.4f\n",(java.lang.Math.sqrt((java.lang.Math.sqrt(i)))));
+		     
+		    
+		   }
+	} 
+		 
+		  }
+
