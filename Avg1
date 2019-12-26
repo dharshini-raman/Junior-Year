@@ -1,0 +1,33 @@
+package average1;
+import java.util.Scanner;
+public class av1 {
+
+	public static void main(String[] args) {
+		   int counter = 1;
+		    double x = 0;
+		    double fMean = 0;
+		    System.out.println("Please enter an integer");
+		    Scanner keyboard = new Scanner(System.in);
+		    int n = keyboard.nextInt();
+		    x = n;
+		    System.out.println("Please enter Y or N");
+		    char choice;
+		    choice = keyboard.next().charAt(0);
+		    while (choice == 'Y') {
+
+		      counter++;
+		      System.out.println("Please enter an integer");
+		      int n1 = keyboard.nextInt();
+
+		      x = (x + n1);
+		      fMean = x / counter;
+
+		      System.out.println("Please enter Y or N");
+		      choice = keyboard.next().charAt(0);
+		    }
+		    double xnum = fMean;
+		    System.out.println(xnum);
+		  }
+		}
+
+
