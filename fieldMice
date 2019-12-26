@@ -1,0 +1,41 @@
+public class FieldMice {
+	
+	private String name;
+	int x;
+	
+	public FieldMice(){ 
+		name = "";
+		x=0;	
+	}
+	public FieldMice (String n,int y) {
+	
+		name=n;
+		x=y;
+		
+	
+	}
+	
+	
+	
+	
+	public String toString()
+	{return name +" " + x;}
+
+public int getX() {return this.x;}
+public String getName() {return this.name;}
+
+public boolean equals (FieldMice l)
+{
+	if ((this.x == l.getX()) &&(this.name == l.getName()))
+		return true;
+	else 
+		return false;
+}
+	
+	
+	
+	
+	
+	
+
+}
