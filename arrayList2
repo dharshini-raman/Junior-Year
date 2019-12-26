@@ -1,0 +1,47 @@
+package arListsss;
+
+import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class attempt2 {
+
+	public static void main(String[] args) {
+		
+		double v1 = 5;
+		double v2 = 7;
+		double d = v1 / v2;
+		String temp = Double.toString(d);
+		String userInput=temp;
+
+		String[] digits = userInput.split("");
+		System.out.println(userInput);
+
+		ArrayList<String> numbers = new ArrayList<String>();
+
+		numbers.addAll(Arrays.asList(digits));
+
+		int count = 0;
+
+		for (int i = 0; i < numbers.size(); i++) {
+			// System.out.printf(numbers.get(i));
+			for (int j = 0; j < numbers.size(); j++) {
+				//System.out.printf(numbers.get(j));
+
+				if (numbers.get(i).equals(numbers.get(j)))
+					count++;
+				if (numbers.get(i).equals(numbers.get(j)) && count > 1) {
+					for(int k=0; k<=j;k++ ) {
+						System.out.print(numbers.get(k)+" ");
+					}
+					System.out.printf("value: "+numbers.get(j)+" ");
+					System.out.print("location: "+ j);
+					 System.exit(0); 
+				}
+			
+			} 
+			count = 0;
+		}
+	}
+}
+
